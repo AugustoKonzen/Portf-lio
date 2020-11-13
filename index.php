@@ -130,31 +130,33 @@
     <center><h5>Contato</h5></center>
     <br><br>
     <div class="row">
-        <form class="col s12 m12 l9" action="">
+        <form class="col s12 m12 l9" method="post" action="Contato.php">
             <div class="input-field col s12">
                 <i class="material-icons prefix">account_circle</i>
-                <input type="text" id="nome" autocomplete="off" class="validate" required>
-                <label for="nome">Nome</label>
+                <input type="text" id="name" name="nome" autocomplete="off" class="validate" required>
+                <label for="name">Nome</label>
             </div>
             <div class="input-field col s12">
                 <i class="material-icons prefix">email</i>
-                <input type="email" id="email" class="validate" autocomplete="off" required>
-                <label data-error="E-mail inválido!" for="email">Email</label>
+                <input type="email" id="mail" name="email" class="validate" autocomplete="off" required>
+                <label data-error="E-mail inválido!" for="mail">Email</label>
             </div>
             <div class="input-field col s12">
                 <i class="material-icons prefix">phone</i>
-                <input type="tel" id="telefone" class="validate" autocomplete="off" required>
-                <label for="telefone">Telefone</label>
+                <input type="tel" id="phone" name="telefone" class="validate" autocomplete="off">
+                <label for="phone">Telefone</label>
             </div>
             <div class="input-field col s12">
-                <i class="material-icons prefix">edit</i>
-                <input type="text" id="mensagem" autocomplete="off" class="validate" required>
-                <label for="text">Mensagem</label>
+                <i class="material-icons prefix">account_circle</i>
+                <input type="text" id="message" name="mensagem" autocomplete="off" class="validate" required>
+                <label for="message">Mensagem</label>
             </div>
-            <center><button class="btn waves-effect waves-light indigo darken-4" type="submit">Enviar</button></center>
+            <center><button class="btn waves-effect waves-light indigo darken-4" type="submit">Enviar
+                </button></center>
         </form>
         <div class="col s12 m12 l3">
-            <p><center>Telefone para contato:<br>(55)99612-5689<br>E-mail para contato:<br>augusto.konzen@yahoo.com.br</center></p>
+            <p><center>Telefone para contato:<br>(55)99612-5689<br>E-mail para contato:<br>
+                augusto.konzen@yahoo.com.br</center></p>
         </div>
     </div>
     <div class="footer-copyright">
