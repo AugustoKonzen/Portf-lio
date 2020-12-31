@@ -1,3 +1,8 @@
+<?php
+    require_once 'Controller/Mail.php';
+    $m = new Mail;
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -10,6 +15,18 @@
     <link rel="stylesheet" href="Views/Estilos/css/materialize.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="Views/Estilos/css/custom.css">
+    <style>
+        .msgErro {
+            font-size: 30px;
+            color: red;
+            text-align: center;
+        }
+        .msgSucesso {
+            font-size: 30px;
+            color: green;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
 
@@ -130,7 +147,7 @@
     <center><h5>Contato</h5></center>
     <br><br>
     <div class="row">
-        <form class="col s12 m12 l9" method="post" action="../../Contato.php">
+        <form class="col s12 m12 l9" method="post"">
             <div class="input-field col s12">
                 <i class="material-icons prefix">account_circle</i>
                 <input type="text" id="name" name="nome" autocomplete="off" class="validate" required>
@@ -178,5 +195,29 @@
         $('.scrollspy').scrollSpy({scrollOffset:0});
     });
 </script>
+
+<?php
+    if (isset($_POST['nome']) && !empty($_POST['nome']) && isset($_POST['email']) && !empty($_POST['email']) &&
+isset($_POST['mensagem']) && !empty($_POST['mensagem'])) {
+        $nome = addslashes($_POST['nome']);
+        $email = addslashes($_POST['email']);
+        $telefone = !empty($_POST['telefone']) ? addslashes($_POST['telefone']) : 'Não informado';
+        $mensagem = addslashes($_POST['mensagem']);
+
+        if ($m->contato($nome, $email, $telefone, $mensagem)) {
+            ?>
+                <div class="msgSucesso">
+                    <p>Mensagem enviada com sucesso!</p>
+                </div>
+            <?php
+        } else {
+            ?>
+                <div class="msgErro">
+                    <p>Não foi possível enviar o email, por favor tente mais tarde!</p>
+                </div>
+            <?php
+        }
+    }
+?>
 </body>
 </html>
